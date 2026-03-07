@@ -21,4 +21,8 @@
     <None Include="Models\Product.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharedBlocks\SharedBlocks\SharedBlocks.csproj" />
+  </ItemGroup>
+
 </Project>
