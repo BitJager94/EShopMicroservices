@@ -1,3 +1,4 @@
+using FluentValidation;
 using Marten;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,11 @@ builder.Services.AddCarter();
 builder.Services.AddMediatR(config =>
 {
     config.RegisterServicesFromAssembly(typeof(Program).Assembly);
+    config.AddOpenBehavior(typeof(ValidationBehaviour<,>));
 });
+
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly); //FluentValidation for DI
+
 builder.Services.AddMarten(opts =>
 {
     opts.Connection(builder.Configuration.GetConnectionString("Database"));
