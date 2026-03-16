@@ -1,8 +1,9 @@
-using FluentValidation;
-using HealthChecks.UI.Client;
-using ImTools;
-using Marten;
+
+
+
+
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnection
 builder.Services.AddMarten(opts =>
 {
     opts.Connection(builder.Configuration.GetConnectionString("Database"));
+    opts.Schema.For<ShoppingCart>().Identity(x => x.UserName);
 }).UseLightweightSessions();
 
 var app = builder.Build();
