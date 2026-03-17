@@ -9,3 +9,5 @@ global using SharedBlocks.Behaviours;
 global using SharedBlocks.CQRS;
 
 global using BasketAPI.Models;
+global using BasketAPI.Data;
+

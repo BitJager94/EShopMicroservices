@@ -1,16 +1,16 @@
 ﻿namespace BasketAPI.Models
 {
     public class ShoppingCartItem
-    {  
-        public int Quantity { get; set; }
+    {
+        public int Quantity { get; set; } = default!;
 
-        public string Color { get; set; }
-        
-        public decimal Price { get; set; }
+        public string Color { get; set; } = default!;
 
-        public Guid ProductId { get; set; }
+        public decimal Price { get; set; } = default!;
 
-        public string ProductName { get; set; }
+        public Guid ProductId { get; set; } = default!;
+
+        public string ProductName { get; set; } = default!;
 
     }
 }

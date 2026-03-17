@@ -20,6 +20,7 @@
         {
             session.Store<ShoppingCart>(basket);
             await session.SaveChangesAsync();
+            Console.WriteLine(basket);
             return basket;
         }
     }

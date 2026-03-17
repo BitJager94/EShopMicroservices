@@ -15,7 +15,7 @@ builder.Services.AddMediatR(config =>
     config.AddOpenBehavior(typeof(LoggingBehaviour<,>));
 
 });
-
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly); //FluentValidation for DI
 builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnectionString("Database")); //register postgresql healthcheck with .net healthcheck container
 builder.Services.AddMarten(opts =>
